@@ -1,0 +1,48 @@
+/* variables */
+
+:root {
+  --main: #171b21;
+  --mid: #222831;
+  --accent: #32e0c4;
+  --text: #eeeeee;
+}
+
+/* fonts */
+
+@font-face {
+  font-family: "leonardoBold";
+  src: url("Fonts/leonardo-bold.otf");
+}
+
+@font-face {
+  font-family: "leonardoUltralight";
+  src: url("Fonts/leonardo-ultralight.otf");
+}
+
+@font-face {
+  font-family: "poppinsThin";
+  src: url("Fonts/Poppins-Thin.ttf");
+}
+
+@font-face {
+  font-family: "poppinsRegular";
+  src: url("Fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "poppinsBold";
+  src: url("Fonts/Poppins-Bold.ttf");
+}
+
+/* desktop formatting */
+
+@media only screen and (min-width: 1224px) {
+  /* ui elements */
+
+  .ContinueArrow:hover {
+    cursor: pointer;
+    font-size: 60px !important;
+    transition: 0.3s;
+    margin-bottom: -10px;
+  }
+}

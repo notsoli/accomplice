@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Members(props) {
+const Members = () => {
   return (
     <div>
-      Welcome to Members!
+      Welcome to members!
     </div>
   );
-}
+};
 
 export default Members;

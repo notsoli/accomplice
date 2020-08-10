@@ -1,1 +1,152 @@
+#index > div > * {
+  position: relative;
+}
 
+/* intro */
+
+#intro {
+  user-select: none;
+}
+
+#logoTexture {
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.2;
+  object-fit: cover;
+  filter: blur(2px);
+}
+
+#logoBig {
+  height: 100vw;
+  opacity: 0.3;
+}
+
+/* intro text */
+
+#logoText {
+  width: 100vw;
+  text-align: center;
+}
+
+#logoText h1 {
+  font-size: 10vw;
+  font-family: "leonardoBold";
+  color: var(--text);
+}
+
+#logoText p {
+  font-size: 5vw;
+  font-family: "leonardoUltralight";
+  color: var(--accent);
+}
+  
+#intro {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+}
+
+/* about */
+
+#about {
+  width: calc(100% - 60px);
+  padding: 60px 30px 30px 30px;
+  background-color: var(--main);
+  color: var(--text);
+}
+
+#patchWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* patches */
+
+.patch {
+  width: 85%;
+}
+
+.patch p {
+  padding: 40px;
+  font-family: "poppinsRegular";
+  line-height: 1.7;
+  width: 75%;
+}
+
+.patchLink {
+  color: inherit;
+  transition: opacity 0.3s;
+}
+
+.patchLink:hover {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.patch#description {
+  background-color: var(--mid);
+  color: var(--text);
+}
+
+.patch#description p {
+  font-size: 6vw;
+}
+
+.patch#types {
+  background-color: var(--accent);
+  color: var(--main);
+  align-self: flex-end;
+}
+
+.patch#types p {
+  font-size: 5vw;
+  text-align: right;
+  float: right;
+}
+
+@media only screen and (min-width: 1224px) {
+  /* intro */
+
+  #logoBig {
+    height: 80vh;
+  }
+
+  #logoText {
+    width: calc(100vw - 100px);
+    text-align: right;
+  }
+
+  #logoText h1 {
+    font-size: 100px;
+  }
+
+  #logoText p {
+    font-size: 25px;
+  }
+
+  /* about */
+
+  #patchWrapper {
+    flex-direction: row;
+  }
+
+  /* patches */
+
+  .patch {
+    width: calc(50% - 100px) !important;
+    max-width: 600px;
+  }
+
+  .patch#description {
+    margin-bottom: 100px;
+  }
+
+  .patch#description p {
+    font-size: 35px;
+  }
+
+  .patch#types p {
+    font-size: 30px;
+  }
+}
