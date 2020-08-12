@@ -45,10 +45,13 @@
   padding: 0 20px;
   font-family: "leonardoUltralight";
   position: relative;
+  transition: 0.3s;
 }
 
 .navItem:hover {
   cursor: pointer;
+  color: var(--accent);
+  transition: 0.3s;
 }
 
 /* integrated navigation */
@@ -68,15 +71,15 @@
 
 /* desktop formatting */
 
-@media only screen and (min-width: 1224px) {
+@media only screen and (min-width: 992px) {
   .navItem::after {
     width: 0;
     height: 1px;
     position: absolute;
     left: 50%;
     display: block;
-    margin-top: 25px;
-    background-color: var(--text);
+    margin-top: 20px;
+    background-color: var(--accent);
     opacity: 0;
     transition: 0.3s;
     content: '';
@@ -86,6 +89,10 @@
     width: calc(100% - 40px);
     left: calc(0% + 20px);
     opacity: 1;
+  }
+
+  #nav.integrated .navItem::after {
+    margin-top: 25px !important;
   }
 }
 

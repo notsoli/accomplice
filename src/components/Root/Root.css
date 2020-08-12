@@ -3,6 +3,7 @@
 :root {
   --main: #171b21;
   --mid: #222831;
+  --neutral: #83848f;
   --accent: #32e0c4;
   --text: #eeeeee;
 }
@@ -34,9 +35,15 @@
   src: url("Fonts/Poppins-Bold.ttf");
 }
 
+/* main */
+
+body {
+  background-color: var(--main);
+}
+
 /* desktop formatting */
 
-@media only screen and (min-width: 1224px) {
+@media only screen and (min-width: 992px) {
   /* ui elements */
 
   .ContinueArrow:hover {

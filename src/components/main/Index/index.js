@@ -14,14 +14,14 @@ const Index = () => {
         <Parallax parentElement="intro" strength="50">
           <img
             id="logoTexture"
-            src={require("./Images/texture.jpg")}
+            src="images/main/index/texture.jpg"
             alt="logo texture"
           />
         </Parallax>
         <Parallax parentElement="intro" strength="40">
           <img
             id="logoBig"
-            src={require("./Images/logo-big.png")}
+            src="images/main/logos/logo-big.png"
             alt="big accomplice logo"
           />
         </Parallax>

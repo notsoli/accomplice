@@ -6,7 +6,6 @@ import './Nav.css';
 class Nav extends Component {
   // mount
   componentDidMount() {
-    console.log("loaded");
     // declare nav
     this.nav = document.querySelector('nav');
 
