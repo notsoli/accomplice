@@ -8,16 +8,19 @@
 
 #projectsSearch {
   display: flex;
-  margin: 15px 30px;
-  height: 40px;
+  margin: 15px 30px 5px 30px;
+  flex-wrap: wrap;
+}
+
+#projectsSearch > * {
+  margin-bottom: 10px;
 }
 
 /* name input */
 
 #nameInput {
-  max-width: 500px;
-  margin-right: auto;
-  flex-grow: 1;
+  width: 100%;
+  height: 40px;
   outline: none;
   border: none;
   border-bottom: 2px solid var(--mid);
@@ -43,16 +46,109 @@
   color: var(--neutral);
 }
 
+/* member input */
+
+#memberInput {
+  position: relative;
+  width: 175px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: var(--mid);
+  margin-right: 15px;
+  transition: 0.3s;
+  transition-delay: 0.3s;
+}
+
+#memberInput.activeInput {
+  border-radius: 5px 5px 0 0;
+  transition: 0s;
+  transition-delay: 0s;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+#memberInput .memberName {
+  font-family: 'poppinsRegular';
+  color: var(--text);
+  font-size: 14px;
+}
+
+#memberInput .memberImage {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  clip-path: circle(50% at center);
+  background-color: var(--main);
+}
+
+#memberSelect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+#memberSelectIcon {
+  color: var(--text);
+  margin-right: 15px;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+#memberSelectIcon:hover {
+  cursor: pointer;
+  color: var(--accent);
+  transition: 0.3s;
+}
+
+#memberInput.activeInput #memberSelectIcon {
+  transform: rotate(180deg);
+}
+
+#memberInput .memberText {
+  color: var(--neutral);
+}
+
+#memberDropdown {
+  width: 175px;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 0px;
+  overflow: auto;
+  z-index: 1;
+  border-radius: 0 0 5px 5px;
+  background-color: var(--mid);
+  transition: 0.3s;
+}
+
+#memberInput.activeInput #memberDropdown {
+  height: 150px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+#memberInput .member {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+#memberDropdown .member:hover {
+  cursor: pointer;
+}
+
 /* tag input */
 
 #tagInput {
   display: flex;
   align-items: center;
-  margin: 0 15px;
   padding: 0 10px;
   font-family: 'poppinsRegular';
   background-color: var(--mid);
   border-radius: 5px;
+  max-width: calc(100% - 20px);
 }
 
 #tagInput p {
@@ -60,18 +156,24 @@
   color: var(--neutral);
 }
 
+#tagList {
+  min-height: 50px;
+  overflow: auto;
+  display: flex;
+}
+
 .tag {
   height: 30px;
   display: flex;
   align-items: center;
   background-color: var(--main);
-  margin-right: 10px;
+  margin: 10px 10px 10px 0;
   border-radius: 5px;
   padding: 0 10px;
 }
 
 .tagName {
-  min-width: 50px;
+  min-width: 40px;
   margin-right: 10px;
   color: var(--text);
 }
@@ -96,7 +198,7 @@
 #newTagInput {
   color: var(--text);
   outline: none;
-  min-width: 50px;
+  min-width: 40px;
   margin-right: 10px;
 }
 
@@ -163,21 +265,21 @@
 
 /* project member */
 
-.member {
+#projectsResults .member {
   margin-top: 15px;
   display: flex;
   align-items: center;
   height: 30px;
 }
 
-.memberImage {
+#projectsResults .memberImage {
   width: 30px;
   height: 30px;
   margin-right: 10px;
   clip-path: circle(50% at center);
 }
 
-.memberName {
+#projectsResults .memberName {
   color: var(--text);
 }
 
@@ -204,6 +306,14 @@
 /* desktop formatting */
 
 @media only screen and (min-width: 992px) {
+  /* name input */
+
+  #nameInput {
+    max-width: 500px;
+    margin-right: auto;
+    flex-grow: 1;
+  }
+
   /* project */
 
   .project {
@@ -222,7 +332,7 @@
   .projectImage {
     width: calc(60% - 60px);
     height: 100%;
-    margin-bottom: none;
+    margin-bottom: 0;
     margin-right: 60px;
   }
 

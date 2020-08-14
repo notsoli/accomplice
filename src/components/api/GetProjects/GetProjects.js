@@ -40,11 +40,16 @@ class GetProjects extends Component {
 
     // compose url
     let url = 'http://api.api.localhost:8080/getProjects?';
-    if (options.name) {
+    if (options.name !== "") {
       url += `name=${encodeURI(options.name)}&`;
-    } else if (options.tags.length !== 0) {
+    }
+    if (options.member !== null) {
+      url += `member=${options.member}`
+    }
+    if (options.tags.length !== 0) {
       url += `tags=${options.tags.join(',')}`
     }
+    console.log(url);
 
     // fetch data from api
     const response = await (await fetch(url)).json();
@@ -76,8 +81,11 @@ class GetProjects extends Component {
             <div className="projectInfo">
               <div className="projectName">{project.name}</div>
               <div className="projectDescription">{project.description}</div>
-              <a href={project.link} className="projectLink"><FontAwesomeIcon className="linkIcon" icon={faLink} /><div className="linkText">{project.link}</div></a>
-              <GetMembers id={project.member} />
+              <a href={project.link}className="projectLink">
+                <FontAwesomeIcon className="linkIcon" icon={faLink} />
+                <div className="linkText">{project.link}</div>
+              </a>
+              <GetMembers memberid={project.member} displayStyle="preview" />
               <div className="projectTags">{'tags: ' + project.tags.join(', ')}</div>
             </div>
             <div className="projectImage">

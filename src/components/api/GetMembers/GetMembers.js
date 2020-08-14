@@ -15,8 +15,8 @@ class GetMembers extends Component {
   async componentDidMount() {
     // compose url
     let url = 'http://api.api.localhost:8080/getMembers?';
-    if (this.props.id) {
-      url += `id=${this.props.id}&`;
+    if (this.props.memberid !== undefined) {
+      url += `id=${this.props.memberid}&`;
     }
 
     // fetch data from api
@@ -31,6 +31,10 @@ class GetMembers extends Component {
         isLoaded: true,
         members: response.members
       });
+
+      if (this.props.doneRendering) {
+        this.props.doneRendering(response.members);
+      }
     }
   }
 
@@ -42,16 +46,19 @@ class GetMembers extends Component {
     } else if (!isLoaded) {
       return <p>Loading...</p>
     }
-    return (
-      <div>
-        {members.map((member, index) => (
-          <div key={index} className="member">
-            <img className="memberImage" src={`/images/members/${member.id}.png`} alt="" />
-            <div className="memberName">{member.name}</div>
-          </div>
-        ))}
-      </div>
-    );
+
+    if (this.props.displayStyle === "preview") {
+      return (
+        <div>
+          {members.map((member, index) => (
+            <div key={index} className="member">
+              <img className="memberImage" src={`/images/members/${member.id}.png`} alt="" />
+              <div className="memberName">{member.name}</div>
+            </div>
+          ))}
+        </div>
+      );
+    }
   }
 }
 
