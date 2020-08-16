@@ -1,9 +1,13 @@
 import React from 'react';
 
+import GetMembers from '../../api/GetMembers';
+
+import './Members.css';
+
 const Members = () => {
   return (
-    <div>
-      Welcome to members!
+    <div id="members">
+      <GetMembers displayStyle="complete"/>
     </div>
   );
 };

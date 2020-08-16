@@ -1,0 +1,71 @@
+/* main */
+#members {
+  margin: 50px 0 30px 0;
+}
+
+#members > div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* member */
+
+#members .member {
+  width: calc(100% - 60px);
+  margin: 30px 30px 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--mid);
+  font-family: 'poppinsRegular';
+}
+
+#members .memberImage {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+}
+
+#members .memberName {
+  font-size: 22px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+#members .memberDescription {
+  color: var(--neutral);
+  width: calc(100% - 40px);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+/* desktop formatting */
+
+@media only screen and (min-width: 992px) {
+  #members .member {
+    height: 200px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  #members .memberName {
+    margin-top: 20px;
+  }
+
+  #members .memberDescription {
+    width: calc(100% - 240px);
+    height: calc(100% - 72px);
+  }
+}
+
+/* widescreen formatting */
+
+@media only screen and (min-width: 1500px) {
+  #members .member {
+    width: calc(50% - 45px);
+    margin-right: 0px;
+  }
+}

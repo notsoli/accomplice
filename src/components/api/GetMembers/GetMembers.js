@@ -47,18 +47,19 @@ class GetMembers extends Component {
       return <p>Loading...</p>
     }
 
-    if (this.props.displayStyle === "preview") {
-      return (
-        <div>
-          {members.map((member, index) => (
-            <div key={index} className="member">
-              <img className="memberImage" src={`/images/members/${member.id}.png`} alt="" />
-              <div className="memberName">{member.name}</div>
-            </div>
-          ))}
-        </div>
-      );
-    }
+    return (
+      <div>
+        {members.map((member, index) => (
+          <div key={index} className="member">
+            <img className="memberImage" src={`/images/members/${member.id}.png`} alt="" />
+            <div className="memberName">{member.name}</div>
+            {this.props.displayStyle === "complete" &&
+              <div className="memberDescription">{member.description}</div>
+            }
+          </div>
+        ))}
+      </div>
+    );
   }
 }
 
