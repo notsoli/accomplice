@@ -3,10 +3,17 @@ const express = require('express');
 // const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-app.use(express.static(path.join(__dirname, 'build')));
+const cors = require('cors');
+
+// configure cors
+app.use(cors({
+  credentials: true,
+  origin: ['http://accomplice.us', 'http://www.accomplice.us', 'http://api.accomplice.us']
+}))
 
 // serve static files
 app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'build')));
 
 // configure express subdomain
 const subdomain = require('express-subdomain');
