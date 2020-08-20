@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const cors = require('cors');
+app.use(express.static(path.join(__dirname, 'build')));
 
 // configure cors
 app.use(cors({
@@ -13,7 +14,6 @@ app.use(cors({
 
 // serve static files
 app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, 'build')));
 
 // configure express subdomain
 const subdomain = require('express-subdomain');
