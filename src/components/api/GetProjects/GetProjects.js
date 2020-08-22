@@ -39,7 +39,7 @@ class GetProjects extends Component {
     const options = this.props.options;
 
     // compose url
-    let url = 'http://api.accomplice.us/getProjects?';
+    let url = 'https://api.accomplice.us/getProjects?';
     if (options.name !== "") {
       url += `name=${encodeURI(options.name)}&`;
     }

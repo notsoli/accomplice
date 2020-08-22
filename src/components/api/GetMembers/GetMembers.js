@@ -14,7 +14,7 @@ class GetMembers extends Component {
   // mount
   async componentDidMount() {
     // compose url
-    let url = 'http://api.accomplice.us/getMembers?';
+    let url = 'https://api.accomplice.us/getMembers?';
     if (this.props.memberid !== undefined) {
       url += `id=${this.props.memberid}&`;
     }

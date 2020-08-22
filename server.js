@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 // configure cors
 app.use(cors({
   credentials: true,
-  origin: ['http://accomplice.us', 'http://www.accomplice.us', 'http://api.accomplice.us']
+  origin: ['https://accomplice.us', 'https://www.accomplice.us', 'https://api.accomplice.us']
 }))
 
 // serve static files
