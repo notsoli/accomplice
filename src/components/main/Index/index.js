@@ -3,29 +3,28 @@ import './Index.css';
 
 import { Link } from "react-router-dom";
 
-import Parallax from '../../ui/Parallax';
 import ContinueArrow from '../../ui/ContinueArrow';
+import ParallaxImage from '../../ui/ParallaxImage';
+import { Parallax } from 'react-scroll-parallax';
 
 
 const Index = () => {
   return (
     <div id="index">
       <div id="intro" style={{position: "relative", overflow: "hidden"}}>
-        <Parallax parentElement="intro" strength="50">
-          <img
+        <Parallax y={[-60, 60]}>
+          <ParallaxImage
             id="logoTexture"
             src="images/main/index/texture.jpg"
-            alt="logo texture"
           />
         </Parallax>
-        <Parallax parentElement="intro" strength="40">
-          <img
+        <Parallax y={[-40, 40]}>
+          <ParallaxImage
             id="logoBig"
             src="images/main/logos/logo-big.png"
-            alt="big accomplice logo"
           />
         </Parallax>
-        <Parallax parentElement="intro" strength="30">
+        <Parallax y={[-30, 30]}>
           <div id="logoText">
             <h1>Accomplice</h1>
             <p>creative collective</p>

@@ -8,7 +8,7 @@
   align-items: stretch;
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 5;
   background-color: var(--mid);
   user-select: none;
   transition: 0.3s;

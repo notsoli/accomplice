@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb://localhost:27017/accomplice";
+const url = "mongodb://mongo:27017/accomplice";
 
 const options = {
   useUnifiedTopology: true

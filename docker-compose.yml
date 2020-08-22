@@ -1,0 +1,12 @@
+version: "2"
+services:
+    main:
+        build: ./
+        ports:
+            - '4431:4431'
+        depends_on:
+            - mongo
+    mongo:
+        image: mongo
+        ports:
+            - '27017:27017'
