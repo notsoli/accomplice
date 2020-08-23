@@ -10,7 +10,7 @@ router.get('/getProjects', async function(req, res) {
     for (const option in req.query) {
       if (option === "name") {
         // add name to options
-        options.name = {$regex: `/^${req.query[option]}/i`};
+        options.name = {$regex: req.query[option], $options: 'i'};
       } else if (option === "member") {
         options.member = parseInt(req.query[option]);
       } else if (option === "tags") {
