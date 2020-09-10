@@ -1,8 +1,0 @@
-{
-  "id": 0,
-  "name": "test project",
-  "description": "a project used to test api features",
-  "link": "https://www.google.com",
-  "member": 0,
-  "tags": ["test", "test2"]
-}

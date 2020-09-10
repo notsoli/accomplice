@@ -15,13 +15,13 @@ const Index = () => {
         <Parallax y={[-60, 60]}>
           <ParallaxImage
             id="logoTexture"
-            src="images/main/index/texture.jpg"
+            src="assets/main/index/texture.jpg"
           />
         </Parallax>
         <Parallax y={[-40, 40]}>
           <ParallaxImage
             id="logoBig"
-            src="images/main/logos/logo-big.png"
+            src="assets/main/logos/logo-big.png"
           />
         </Parallax>
         <Parallax y={[-30, 30]}>
@@ -41,7 +41,6 @@ const Index = () => {
             <p>The <Link to="/projects" className="patchLink">projects</Link> created under ACCOMPLICE range from video production, to music, to web design.</p>
           </div>
         </div>
-        <ContinueArrow target="about" color="var(--text)" offset="30px"/>
       </div>
     </div>
   );

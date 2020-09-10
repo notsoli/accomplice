@@ -51,11 +51,24 @@ class GetMembers extends Component {
       <div>
         {members.map((member, index) => (
           <div key={index} className="member">
-            <img className="memberImage" src={`/images/members/${member.id}.png`} alt="" />
-            <div className="memberName">{member.name}</div>
-            {this.props.displayStyle === "complete" &&
-              <div className="memberDescription">{member.description}</div>
-            }
+            <img className="memberImage" src={
+              this.props.displayStyle === "complete"
+              ? `/images/members/full/${member.id}.jpg`
+              : `/images/members/preview/${member.id}.jpg`
+            } alt="user avatar" />
+            <div className="memberInfo">
+              <div className="memberName">{member.name}</div>
+              {this.props.displayStyle === "complete" &&
+                <div className="completeMember">
+                  <div className="memberDescription">{member.description}</div>
+                  <div className="memberAccounts">
+                    {member.accounts.map((account, index) => (
+                      <a key={index} href={account.link}>{account.platform}</a>
+                    ))}
+                  </div>
+                </div>
+              }
+            </div>
           </div>
         ))}
       </div>

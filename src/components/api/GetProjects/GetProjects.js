@@ -89,7 +89,7 @@ class GetProjects extends Component {
               <div className="projectTags">{'tags: ' + project.tags.join(', ')}</div>
             </div>
             <div className="projectImage">
-              <img src={`/images/projects/${project.id}.png`} alt="" />
+              <img src={`/images/projects/${project.id}.jpg`} alt="" />
             </div>
           </div>
         ))}

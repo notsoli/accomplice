@@ -1,16 +1,16 @@
 // api router
-const express = require('express');
-const router = express.Router();
-const mongo = require('../../private/mongo');
+const Router = require('koa-router');
+const router = new Router();
+const db = require('../../private/db');
 
-router.get('/getMembers', async function(req, res) {
+router.get('/getMembers', async ctx => {
   try {
     // create options object
     const options = {};
-    for (const option in req.query) {
+    for (const option in ctx.request.query) {
       if (option === "id") {
         // check if id is an integer
-        const id = req.query[option]
+        const id = ctx.request.query[option];
         if (isNaN(id)) throw new Error("id must be an integer");
 
         // add id to options
@@ -21,10 +21,10 @@ router.get('/getMembers', async function(req, res) {
     }
 
     // get members that match search queries
-    const members = await mongo.getMembers(options);
-    res.send({members: members});
+    const members = await db.getMembers(options);
+    ctx.body = {members: members};
   } catch (error) {
-    res.send({error: error.message});
+    ctx.body = {error: error.message};
   }
 });
 

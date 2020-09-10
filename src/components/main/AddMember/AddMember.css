@@ -1,0 +1,148 @@
+/* main */
+
+#addMember {
+  margin: 80px 30px 30px 30px;
+}
+
+#addMember h1 {
+  color: var(--text);
+  font-family: 'poppinsRegular';
+  margin-bottom: 30px;
+  font-size: 22px;
+}
+
+#addMember h2 {
+  color: var(--text);
+  font-family: 'poppinsRegular';
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+/* form */
+
+#memberForm form > * {
+  margin-bottom: 15px;
+}
+
+/* file picker */
+
+#filePicker {
+  display: flex;
+  font-family: 'poppinsRegular';
+  align-items: center;
+}
+
+#filePicker button {
+  min-width: 150px;
+}
+
+#filePicker p {
+  color: var(--text);
+  margin-left: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+#avatarInput {
+  display: none;
+}
+
+/* socials section */
+
+#addAccount {
+  margin-top: 5px;
+}
+
+/* account */
+
+.account {
+  margin-bottom: 10px;
+}
+
+.accountPlatform {
+  width: 75px;
+  margin-right: 15px;
+}
+
+.accountLink {
+  width: 150px;
+  margin-right: 15px;
+}
+
+/* member preview */
+
+#memberPreview .member {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--mid);
+  font-family: 'poppinsRegular';
+  align-items: center;
+  max-width: 800px;
+}
+
+#memberPreview .memberImage {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+}
+
+#memberPreview .memberInfo {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 30px);
+}
+
+#memberPreview .memberName {
+  font-size: 22px;
+  color: var(--text);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#memberPreview .memberDescription {
+  color: var(--neutral);
+  line-height: 1.3;
+  flex-grow: 1;
+}
+
+#memberPreview .memberAccounts {
+  font-size: 14px;
+}
+
+#memberPreview .memberAccounts a {
+  margin-right: 10px;
+  color: var(--neutral);
+}
+
+/* desktop formatting */
+
+@media only screen and (min-width: 992px) {
+  #addMember {
+    display: flex;
+  }
+
+  #memberForm {
+    width: 500px;
+  }
+
+  #memberPreview {
+    width: calc(100% - 500px);
+  }
+
+  #memberPreview .member {
+    flex-direction: row;
+  }
+
+  #memberPreview .memberInfo {
+    height: 170px;
+  }
+
+  #memberPreview .memberName {
+    text-align: left;
+  }
+}

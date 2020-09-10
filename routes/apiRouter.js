@@ -1,18 +1,13 @@
 // api router
-const express = require('express');
-const router = express.Router();
-
-// main api endpoint
-router.get('/', function(req, res) {
-    res.send('Welcome to the Accomplice API!');
-});
+const Router = require('koa-router');
+const router = new Router();
 
 // getProjects api endpoint
 const getProjects = require('./api/getProjects');
-router.get('/getProjects', getProjects);
+router.use(getProjects.routes());
 
 // getMembers api endpoint
 const getMembers = require('./api/getMembers');
-router.get('/getMembers', getMembers);
+router.use(getMembers.routes());
 
 module.exports = router;

@@ -1,10 +1,17 @@
-// configure express
-const express = require('express');
-// const bodyParser = require('body-parser');
+// configure koa
+const Koa = require('koa');
+const app = new Koa();
+
+// node middleware
 const path = require('path');
-const app = express();
-const cors = require('cors');
-app.use(express.static(path.join(__dirname, 'build')));
+
+// koa middleware
+const Router = require('koa-router');
+const staticDir = require('koa-static');
+const cors = require('@koa/cors');
+const send = require('koa-send');
+const koaBody = require('koa-body');
+const bodyClean = require('koa-body-clean');
 
 // configure cors
 app.use(cors({
@@ -12,20 +19,37 @@ app.use(cors({
   origin: ['https://accomplice.us', 'https://www.accomplice.us', 'https://api.accomplice.us']
 }))
 
+// configure body parser
+app.use(koaBody({
+  formidable: {uploadDir: './data/images/temp'},
+  multipart: true
+}));
+app.use(bodyClean());
+
 // serve static files
-app.use(express.static('public'));
+app.use(staticDir(path.join(__dirname, 'public')));
+app.use(staticDir(path.join(__dirname, 'data')));
+app.use(staticDir(path.join(__dirname, 'build')));
 
 // configure express subdomain
-const subdomain = require('express-subdomain');
+const Subdomain = require('koa-subdomain');
+const subdomain = new Subdomain();
 
 // api router
 const apiRouter = require('./routes/apiRouter');
-app.use(subdomain('api', apiRouter));
+subdomain.use('api', apiRouter.routes());
+app.use(subdomain.routes());
+
+// post router
+const postRouter = require('./routes/postRouter');
+app.use(postRouter.routes());
 
 // index router
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+const indexRouter = new Router();
+indexRouter.get('(.*)', async ctx => {
+  await send(ctx, path.join('build', 'index.html'));
 });
+app.use(indexRouter.routes());
 
 app.listen(process.env.PORT || 4431);
 console.log('Listening on port 4431');

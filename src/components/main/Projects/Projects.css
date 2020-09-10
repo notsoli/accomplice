@@ -265,21 +265,21 @@
 
 /* project member */
 
-#projectsResults .member {
+.project .member {
   margin-top: 15px;
   display: flex;
   align-items: center;
   height: 30px;
 }
 
-#projectsResults .memberImage {
+.project .memberImage {
   width: 30px;
   height: 30px;
   margin-right: 10px;
   clip-path: circle(50% at center);
 }
 
-#projectsResults .memberName {
+.project .memberName {
   color: var(--text);
 }
 
@@ -352,6 +352,7 @@
 
   #projectsResults > div {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 

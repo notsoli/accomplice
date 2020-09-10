@@ -69,7 +69,7 @@ class Projects extends Component {
   handleMemberClick(event) {
     // get correct target element
     let target = event.target;
-    if (target.className !== "member") {
+    while (target.className !== "member") {
       target = target.parentNode;
     }
 
